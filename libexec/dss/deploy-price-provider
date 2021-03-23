@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+#  Copyright (C) 2020 Freeliquid
+
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU Affero General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Affero General Public License for more details.
+
+#  You should have received a copy of the GNU Affero General Public License
+#  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# shellcheck source=lib/common.sh
+. "$LIB_DIR/common.sh"
+
+
+test -z "$MCD_GOV" && echo "There is no MCD_GOV configured" && exit 1
+test -z "$MCD_SPOT" && echo "There is no MCD_SPOT configured" && exit 1
+test -z "$ILK_REGISTRY" && echo "There is no ILK_REGISTRY configured" && exit 1
+
+
+
+FL_REWARD_PRICE_PROVIDER=$(dappCreate freeliquid-ct-optimized PriceProvider)
+export FL_REWARD_PRICE_PROVIDER
+
+
+
+updatePeriod=$(jq -r ".priceProviderUpdatePeriod | values" "$CONFIG_FILE")
+rewardTime=$(jq -r ".priceProviderRewardTime | values" "$CONFIG_FILE")
+rewardValue=$(jq -r ".priceProviderRewardValue | values" "$CONFIG_FILE")
+rewardValue=$(bc -l <<< "${rewardValue}  * 10^18")
+
+sethSend "$MCD_GOV" "mint(address,uint256)" "$FL_REWARD_PRICE_PROVIDER" "$(seth --to-uint256 "$rewardValue")"
+
+sethSend "$FL_REWARD_PRICE_PROVIDER" "setup(address,address,address,uint,uint)" "$MCD_GOV" "$MCD_SPOT" "$ILK_REGISTRY" "$updatePeriod" "$rewardTime"
+
+log "FL_REWARD_PRICE_PROVIDER=$FL_REWARD_PRICE_PROVIDER"

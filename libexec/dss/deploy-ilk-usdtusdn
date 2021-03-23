@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+#  Copyright (C) 2019-2020 Maker Ecosystem Growth Holdings, INC.
+
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU Affero General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Affero General Public License for more details.
+
+#  You should have received a copy of the GNU Affero General Public License
+#  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# shellcheck source=lib/common.sh
+. "$LIB_DIR/common.sh"
+
+if [[ -z "$USDTUSDN" ]]; then
+    USDTUSDN=$(dappCreate freeliquid-ct-optimized UniswapPairUSDTUSDCStub "$(seth --to-uint256 "$(seth --to-wei 1000000 ETH)")")
+    log "USDTUSDN=$USDTUSDN"
+    export USDTUSDN
+fi
+
+token=USDTUSDN
+type=$(jq -r ".tokens.${token} | .pipDeploy | .type | values" "$CONFIG_FILE")
+if [[ "${type}" == "freeliquid" ]]; then
+	priceETHUSDT=$(jq -r ".tokens.${token} | .pipDeploy | .oracleETHUSDT | values" "$CONFIG_FILE")
+	priceUSDETH=$(jq -r ".tokens.${token} | .pipDeploy | .oracleUSDETH | values" "$CONFIG_FILE")
+	tokenUSDT=$(jq -r ".tokens.${token} | .pipDeploy | .tokenUSDT | values" "$CONFIG_FILE")
+
+	{ test "$priceETHUSDT" == "" || test "$tokenUSDT" == "" || test "$priceUSDETH" == "" || test "$USDTUSDN" == ""; } && echo "No parameters for USDTUSDN oracle" && exit 1
+	sethSend "$VAL_USDTUSDN" "setup(address,address,address,address,bool)" "$priceETHUSDT" "$priceUSDETH" "$USDTUSDN" "$tokenUSDT" true
+fi
+
+# shellcheck source=libexec/dss/deploy-ilk
+. "$LIBEXEC_DIR/dss/deploy-ilk-fl" "USDTUSDN" "${1:-"A"}" "GemJoinWithReward" "NONE" "$FL_REWARDER" "$FL_UNI_ADAPTER_STABLES"

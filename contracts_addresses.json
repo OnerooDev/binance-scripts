@@ -1,0 +1,568 @@
+{
+    "ds-proxy": [
+        {
+            "address": "0xA26e15C895EFc0616177B7c1e7270A4C7D51C997",
+            "contract": "PROXY_FACTORY",
+            "master": true,
+            "rev": "4299be40d5a76c02e690db055281d476a460a38b",
+            "ver": "1.0.0"
+        }
+    ],
+    "ds-roles": [
+        {
+            "address": "0x9eF05f7F6deB616fd37aC3c959a2dDD25A54E4F5",
+            "contract": "MCD_ADM",
+            "master": true,
+            "rev": "dbd4c1a4f5aa2d64598fff69a12f773e2b4f4fa6",
+            "ver": "1.0.0"
+        }
+    ],
+    "ds-token": [
+        {
+            "address": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
+            "contract": "MCD_GOV",
+            "master": true,
+            "rev": "ae74f6d093ff8e121b706874f97b69b39f1fa5d9",
+            "ver": "1.0.0"
+        }
+    ],
+    "ds-value": [
+        {
+            "address": "0x81FE72B5A8d1A857d176C3E7d5Bd2679A9B85763",
+            "contract": "PIP_ETH",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0xB4eb54AF9Cc7882DF0121d26c5b97E802915ABe6",
+            "contract": "PIP_BAT",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x77b68899b99b686F415d074278a9a16b336085A0",
+            "contract": "PIP_USDC",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.0.4"
+        },
+        {
+            "address": "0xf185d0682d50819263941e5f4EacC763CC5C6C42",
+            "contract": "PIP_WBTC",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.0.6"
+        },
+        {
+            "address": "0xeE13831ca96d191B688A670D47173694ba98f1e5",
+            "contract": "PIP_TUSD",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.0.7"
+        },
+        {
+            "address": "0x7382c066801E7Acb2299aC8562847B9883f5CD3c",
+            "contract": "PIP_ZRX",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.0.8"
+        },
+        {
+            "address": "0xf36B79BD4C0904A5F350F1e4f776B81208c13069",
+            "contract": "PIP_KNC",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.0.8"
+        },
+        {
+            "address": "0x8067259EA630601f319FccE477977E55C6078C13",
+            "contract": "PIP_MANA",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.0.9"
+        },
+        {
+            "address": "0x7a5918670B0C390aD25f7beE908c1ACc2d314A3C",
+            "contract": "PIP_USDT",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.1.1"
+        },
+        {
+            "address": "0x043B963E1B2214eC90046167Ea29C2c8bDD7c0eC",
+            "contract": "PIP_PAXUSD",
+            "master": true,
+            "rev": "f3dc6c8656727b74a5469ec2d4cd6851c9db8999",
+            "ver": "1.1.1"
+        }
+    ],
+    "ds-weth": [
+        {
+            "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+            "contract": "ETH",
+            "master": true,
+            "rev": "b5819d1c088e1b750900b8539d6f7bfd6c0b28c7",
+            "ver": "1.0.0"
+        }
+    ],
+    "dsr-manager": [
+        {
+            "address": "0x373238337Bfe1146fb49989fc222523f83081dDb",
+            "contract": "DSR_MANAGER",
+            "master": true,
+            "rev": "363912dcdac7e94089b15dbd840821b4fbdd543a",
+            "ver": "1.0.7"
+        }
+    ],
+    "dss-cdp-manager": [
+        {
+            "address": "0x5ef30b9986345249bc32d8928B7ee64DE9435E39",
+            "contract": "CDP_MANAGER",
+            "master": false,
+            "rev": "8f7419aa02b7fe712a91fad22ceba91a9bf2c7fe",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x36a724Bd100c39f0Ea4D3A20F7097eE01A8Ff573",
+            "contract": "GET_CDPS",
+            "master": false,
+            "rev": "8f7419aa02b7fe712a91fad22ceba91a9bf2c7fe",
+            "ver": "1.0.0"
+        }
+    ],
+    "dss-deploy": [
+        {
+            "address": "0xbaa65281c2FA2baAcb2cb550BA051525A480D3F4",
+            "contract": "MCD_DEPLOY",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x35D1b3F3D7966A1DFe207aa4514C12a259A0492B",
+            "contract": "MCD_VAT",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x19c0976f590D67707E62397C87829d896Dc0f1F1",
+            "contract": "MCD_JUG",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0xa5679C04fc3d9d8b0AaB1F0ab83555b301cA70Ea",
+            "contract": "MCD_CAT",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0xA950524441892A31ebddF91d3cEEFa04Bf454466",
+            "contract": "MCD_VOW",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x9759A6Ac90977b93B58547b4A71c78317f391A28",
+            "contract": "MCD_JOIN_DAI",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0xC4269cC7acDEdC3794b221aA4D9205F564e27f0d",
+            "contract": "MCD_FLAP",
+            "master": false,
+            "rev": "a276b5b145c564b465fbcf7adeb302f581762be1",
+            "ver": "1.0.9"
+        },
+        {
+            "address": "0xA41B6EF151E06da0e34B009B86E828308986736D",
+            "contract": "MCD_FLOP",
+            "master": false,
+            "rev": "a276b5b145c564b465fbcf7adeb302f581762be1",
+            "ver": "1.0.9"
+        },
+        {
+            "address": "0xbE286431454714F511008713973d3B053A2d38f3",
+            "contract": "MCD_PAUSE",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0xBE8E3e3618f7474F8cB1d074A26afFef007E98FB",
+            "contract": "MCD_PAUSE_PROXY",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x4F5f0933158569c026d617337614d00Ee6589B6E",
+            "contract": "MCD_GOV_ACTIONS",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "contract": "MCD_DAI",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x65C79fcB50Ca1594B025960e539eD7A9a6D434A3",
+            "contract": "MCD_SPOT",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x197E90f9FAD81970bA7976f33CbD77088E5D7cf7",
+            "contract": "MCD_POT",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0xaB14d3CE3F733CACB76eC2AbE7d2fcb00c99F3d5",
+            "contract": "MCD_END",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x0581A0AbE32AAe9B5f0f68deFab77C6759100085",
+            "contract": "MCD_ESM",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x2F0b23f53734252Bda2277357e97e1517d6B042A",
+            "contract": "MCD_JOIN_ETH_A",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0xF32836B9E1f47a0515c6Ec431592D5EbC276407f",
+            "contract": "MCD_FLIP_ETH_A",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
+            "contract": "BAT",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x3D0B1912B66114d4096F48A8CEe3A56C231772cA",
+            "contract": "MCD_JOIN_BAT_A",
+            "master": false,
+            "rev": "77f7e88ec50791e6700bc2ddfa4ee13df2f9b3d8",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0xF7C569B2B271354179AaCC9fF1e42390983110BA",
+            "contract": "MCD_FLIP_BAT_A",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "contract": "USDC",
+            "master": false,
+            "rev": "4aead838a6e17dcc3e825add8b668506cef21963",
+            "ver": "1.0.4"
+        },
+        {
+            "address": "0xA191e578a6736167326d05c119CE0c90849E84B7",
+            "contract": "MCD_JOIN_USDC_A",
+            "master": false,
+            "rev": "4aead838a6e17dcc3e825add8b668506cef21963",
+            "ver": "1.0.4"
+        },
+        {
+            "address": "0xbe359e53038E41a1ffA47DAE39645756C80e557a",
+            "contract": "MCD_FLIP_USDC_A",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0x2600004fd1585f7270756DDc88aD9cfA10dD0428",
+            "contract": "MCD_JOIN_USDC_B",
+            "master": false,
+            "rev": "cf040a22f9ec0130e27317dbf595344fb1538d16",
+            "ver": "1.0.7"
+        },
+        {
+            "address": "0x77282aD36aADAfC16bCA42c865c674F108c4a616",
+            "contract": "MCD_FLIP_USDC_B",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "contract": "WBTC",
+            "master": false,
+            "rev": "6c48a5a29874005784f3bd91621d145e973e4766",
+            "ver": "1.0.6"
+        },
+        {
+            "address": "0xBF72Da2Bd84c5170618Fbe5914B0ECA9638d5eb5",
+            "contract": "MCD_JOIN_WBTC_A",
+            "master": false,
+            "rev": "6c48a5a29874005784f3bd91621d145e973e4766",
+            "ver": "1.0.6"
+        },
+        {
+            "address": "0x58CD24ac7322890382eE45A3E4F903a5B22Ee930",
+            "contract": "MCD_FLIP_WBTC_A",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0x0000000000085d4780B73119b644AE5ecd22b376",
+            "contract": "TUSD",
+            "master": false,
+            "rev": "cf040a22f9ec0130e27317dbf595344fb1538d16",
+            "ver": "1.0.7"
+        },
+        {
+            "address": "0x4454aF7C8bb9463203b66C816220D41ED7837f44",
+            "contract": "MCD_JOIN_TUSD_A",
+            "master": false,
+            "rev": "cf040a22f9ec0130e27317dbf595344fb1538d16",
+            "ver": "1.0.7"
+        },
+        {
+            "address": "0x9E4b213C4defbce7564F2Ac20B6E3bF40954C440",
+            "contract": "MCD_FLIP_TUSD_A",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
+            "contract": "ZRX",
+            "master": false,
+            "rev": "4fdfc84082097dcaffee67b4e9b573c4867a6d40",
+            "ver": "1.0.8"
+        },
+        {
+            "address": "0xa4341cAf9F9F098ecb20fb2CeE2a0b8C78A18118",
+            "contract": "MCD_FLIP_ZRX_A",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0xc7e8Cd72BDEe38865b4F5615956eF47ce1a7e5D0",
+            "contract": "MCD_JOIN_ZRX_A",
+            "master": false,
+            "rev": "4fdfc84082097dcaffee67b4e9b573c4867a6d40",
+            "ver": "1.0.8"
+        },
+        {
+            "address": "0xdd974D5C2e2928deA5F71b9825b8b646686BD200",
+            "contract": "KNC",
+            "master": false,
+            "rev": "4fdfc84082097dcaffee67b4e9b573c4867a6d40",
+            "ver": "1.0.8"
+        },
+        {
+            "address": "0x57B01F1B3C59e2C0bdfF3EC9563B71EEc99a3f2f",
+            "contract": "MCD_FLIP_KNC_A",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0x475F1a89C1ED844A08E8f6C50A00228b5E59E4A9",
+            "contract": "MCD_JOIN_KNC_A",
+            "master": false,
+            "rev": "4fdfc84082097dcaffee67b4e9b573c4867a6d40",
+            "ver": "1.0.8"
+        },
+        {
+            "address": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
+            "contract": "MANA",
+            "master": false,
+            "rev": "a276b5b145c564b465fbcf7adeb302f581762be1",
+            "ver": "1.0.9"
+        },
+        {
+            "address": "0x0a1D75B4f49BA80724a214599574080CD6B68357",
+            "contract": "MCD_FLIP_MANA_A",
+            "master": false,
+            "rev": "0d08d301e0d0c94dc94538028473d429d7d90943",
+            "ver": "1.1.0"
+        },
+        {
+            "address": "0xA6EA3b9C04b8a38Ff5e224E7c3D6937ca44C0ef9",
+            "contract": "MCD_JOIN_MANA_A",
+            "master": false,
+            "rev": "a276b5b145c564b465fbcf7adeb302f581762be1",
+            "ver": "1.0.9"
+        },
+        {
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "contract": "USDT",
+            "master": false,
+            "rev": "42c952054bcd3d696edbbbf61247b2eb09d5d634",
+            "ver": "1.1.1"
+        },
+        {
+            "address": "0x0Ac6A1D74E84C2dF9063bDDc31699FF2a2BB22A2",
+            "contract": "MCD_JOIN_USDT_A",
+            "master": false,
+            "rev": "42c952054bcd3d696edbbbf61247b2eb09d5d634",
+            "ver": "1.1.1"
+        },
+        {
+            "address": "0x667F41d0fDcE1945eE0f56A79dd6c142E37fCC26",
+            "contract": "MCD_FLIP_USDT_A",
+            "master": false,
+            "rev": "42c952054bcd3d696edbbbf61247b2eb09d5d634",
+            "ver": "1.1.1"
+        },
+        {
+            "address": "0x8E870D67F660D95d5be530380D0eC0bd388289E1",
+            "contract": "PAXUSD",
+            "master": false,
+            "rev": "42c952054bcd3d696edbbbf61247b2eb09d5d634",
+            "ver": "1.1.1"
+        },
+        {
+            "address": "0x7e62B7E279DFC78DEB656E34D6a435cC08a44666",
+            "contract": "MCD_JOIN_PAXUSD_A",
+            "master": false,
+            "rev": "42c952054bcd3d696edbbbf61247b2eb09d5d634",
+            "ver": "1.1.1"
+        },
+        {
+            "address": "0x52D5D1C05CC79Fc24A629Cb24cB06C5BE5d766E7",
+            "contract": "MCD_FLIP_PAXUSD_A",
+            "master": false,
+            "rev": "42c952054bcd3d696edbbbf61247b2eb09d5d634",
+            "ver": "1.1.1"
+        }
+    ],
+    "dss-deploy-pause-proxy-actions": [
+        {
+            "address": "0x6bda13D43B7EDd6CAfE1f70fB98b5d40f61A1370",
+            "contract": "PROXY_PAUSE_ACTIONS",
+            "master": true,
+            "rev": "0eb7ba088d8c86255b5bb75455be5d2fd3aba74c",
+            "ver": "1.0.0"
+        }
+    ],
+    "dss-proxy-actions": [
+        {
+            "address": "0x82ecD135Dce65Fbc6DbdD0e4237E0AF93FFD5038",
+            "contract": "PROXY_ACTIONS",
+            "master": false,
+            "rev": "a64b04bd0bc44221299630057a7464ce44bbadb2",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x7AfF9FC9faD225e3c88cDA06BC56d8Aca774bC57",
+            "contract": "PROXY_ACTIONS_END",
+            "master": false,
+            "rev": "23c3cc5fc996ab9f1a5a1d48f1c05905aab87547",
+            "ver": "1.0.5"
+        },
+        {
+            "address": "0x07ee93aEEa0a36FfF2A9B95dd22Bd6049EE54f26",
+            "contract": "PROXY_ACTIONS_DSR",
+            "master": false,
+            "rev": "a64b04bd0bc44221299630057a7464ce44bbadb2",
+            "ver": "1.0.0"
+        }
+    ],
+    "flipper-mom": [
+        {
+            "address": "0xc4bE7F74Ee3743bDEd8E0fA218ee5cf06397f472",
+            "contract": "FLIPPER_MOM",
+            "master": true,
+            "rev": "a07dcdbad1e9f0efcfcc6b758e7b3cc0925d968f",
+            "ver": "1.1.0"
+        }
+    ],
+    "ilk-registry": [
+        {
+            "address": "0x8b4ce5DCbb01e0e1f0521cd8dCfb31B308E52c24",
+            "contract": "ILK_REGISTRY",
+            "master": false,
+            "rev": "63a476104ddd6f739a8ace4a906fde415a1fb2fc",
+            "ver": "1.1.0"
+        }
+    ],
+    "mkr-authority": [
+        {
+            "address": "0x6eEB68B2C7A918f36B78E2DB80dcF279236DDFb8",
+            "contract": "GOV_GUARD",
+            "master": true,
+            "rev": "d1f71eabb42af7c494ca16d87fa923279bd50083",
+            "ver": "1.0.2"
+        }
+    ],
+    "multicall": [
+        {
+            "address": "0x5e227AD1969Ea493B43F840cfF78d08a6fc17796",
+            "contract": "MULTICALL",
+            "master": true,
+            "rev": "57967fce0ae1f9c6b6413345b36b40067a9a7700",
+            "ver": "1.0.0"
+        }
+    ],
+    "osm-mom": [
+        {
+            "address": "0x76416A4d5190d071bfed309861527431304aA14f",
+            "contract": "OSM_MOM",
+            "master": true,
+            "rev": "c128bbfc7cffcabbfbc73d9526574bceede83469",
+            "ver": "1.0.3"
+        }
+    ],
+    "proxy-registry": [
+        {
+            "address": "0x4678f0a6958e4D2Bc4F1BAF7Bc52E8F3564f3fE4",
+            "contract": "PROXY_REGISTRY",
+            "master": true,
+            "rev": "788fa524230d913e74bad34729dfc72c51241509",
+            "ver": "1.0.0"
+        },
+        {
+            "address": "0x1b93556AB8dcCEF01Cd7823C617a6d340f53Fb58",
+            "contract": "PROXY_DEPLOYER",
+            "master": true,
+            "rev": "788fa524230d913e74bad34729dfc72c51241509",
+            "ver": "1.0.0"
+        }
+    ],
+    "token-faucet": [
+        {
+            "address": "0x0000000000000000000000000000000000000000",
+            "contract": "FAUCET",
+            "master": true,
+            "rev": "4d1323f93aa26a08c10e7c15fd6362ccc88a0176",
+            "ver": "1.0.0"
+        }
+    ]
+}

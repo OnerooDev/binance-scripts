@@ -1,0 +1,459 @@
+{
+  "contracts": {
+    "MCD_GOV": {
+      "gen": "hevm flatten --source-file src/token.sol --json-file out/dapp.sol.json",
+      "prj": "ds-token",
+      "path": "src/token.sol:DSToken",
+      "sign": "DSToken(bytes32)",
+      "args": "0x464c000000000000000000000000000000000000000000000000000000000000"
+    },
+    "MCD_ADM": {
+      "contract": "adm.sol",
+      "prj": "ds-chief",
+      "path": "src/chief.sol:DSChief",
+      "sign": "DSChief(address,address,uint)",
+      "args": "$MCD_GOV $MCD_IOU 5"
+    },
+    "MCD_IOU": {
+      "gen": "hevm flatten --source-file src/token.sol --json-file out/dapp.sol.json",
+      "prj": "ds-token",
+      "path": "src/token.sol:DSToken",
+      "sign": "DSToken(bytes32)",
+      "args": "0x46564f5445000000000000000000000000000000000000000000000000000000"
+    },
+    "VOTE_PROXY_FACTORY": {
+      "gen": "hevm flatten --source-file src/VoteProxyFactory.sol --json-file out/dapp.sol.json",
+      "prj": "vote-proxy",
+      "path": "src/VoteProxyFactory.sol:VoteProxyFactory",
+      "sign": "VoteProxyFactory(address)",
+      "args": "$MCD_ADM"
+    },
+    "MCD_JUG": {
+      "contract": "jug.sol",
+      "prj": "dss-deploy",
+      "path": "lib/dss/src/jug.sol:Jug",
+      "sign": "Jug(address)",
+      "args": "$MCD_VAT"
+    },
+    "MCD_VOW": {
+      "comment":"(address vat_, address flapper_, address flopper_)",
+      "contract": "vow.sol",
+      "prj": "dss-deploy",
+      "path": "lib/dss/src/vow.sol:Vow",
+      "sign": "Jug(address,address,address)",
+      "args": "$MCD_VAT $MCD_FLAP $MCD_FLOP"
+    },
+    "MCD_JOIN_USDFL": {
+      "comment":"(address vat_, address dai_)",
+      "contract": "daiJoin.sol",
+      "prj": "dss-deploy",
+      "path": "lib/dss/src/join.sol:DaiJoin",
+      "sign": "DaiJoin(address,address)",
+      "args": "$MCD_VAT $MCD_USDFL"
+    },
+    "MCD_FLAP": {
+      "contract": "flap.sol",
+      "prj": "dss-deploy",
+      "path": "lib/dss/src/flap.sol:Flapper",
+      "sign": "Flapper(address,address)",
+      "args": "$MCD_VAT $MCD_GOV"
+    },
+    "MCD_FLOP": {
+      "contract": "flop.sol",
+      "prj": "dss-deploy",
+      "path": "lib/dss/src/flop.sol:Flopper",
+      "sign": "Flopper(address,address)",
+      "args": "$MCD_VAT $MCD_GOV"
+    },
+    "MCD_PAUSE": {
+      "comment":"(uint delay_, address owner_, DSAuthority authority_)",
+      "gen": "hevm flatten --source-file lib/ds-pause/src/pause.sol --json-file out/dapp.sol.json",
+      "prj": "dss-deploy",
+      "path": "lib/ds-pause/src/pause.sol:DSPause",
+      "sign": "DSPause(uint,address,address)",
+      "args": "0x0000000000000000000000000000000000000000000000000000000000000000 0x0000000000000000000000000000000000000000 $MCD_ADM_TMP"
+    },
+    "MCD_PAUSE_PROXY": {
+      "contract": "pauseProxy.sol",
+      "prj": "dss-deploy",
+      "path": "lib/ds-pause/src/pause.sol:DSPauseProxy"
+    },
+    "MCD_DAI": {
+      "comment":"(uint256 chainId_)",
+      "prj": "freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/usdfl.sol --json-file out/dapp.sol.json",
+      "path": "src/usdfl.sol:USDFL",
+      "sign": "USDFL(uint256)",
+      "args": "$CHAIN_ID"
+    },
+    "MCD_SPOT": {
+      "comment":"(address vat_)",
+      "contract": "spotter.sol",
+      "prj": "dss-deploy",
+      "path": "lib/dss/src/spot.sol:Spotter",
+      "sign": "Spotter(address)",
+      "args": "$MCD_VAT"
+    },
+    "MCD_POT": {
+      "comment":"(address vat_)",
+      "contract": "pot.sol",
+      "prj": "dss-deploy",
+      "path": "lib/dss/src/pot.sol:Pot",
+      "sign": "Pot(address)",
+      "args": "$MCD_VAT"
+    },
+    "MCD_END": {
+      "contract": "end.sol",
+      "prj": "dss-deploy",
+      "path": "lib/dss/src/end.sol:End"
+    },
+    "MCD_ESM": {
+      "comment":"(address gem_, address end_, address pit_, uint256 min_)",
+      "contract": "esm.sol",
+      "prj": "dss-deploy",
+      "path": "lib/esm/src/ESM.sol:ESM",
+      "sign": "ESM(address,address,address,uint256)",
+      "args": "$MCD_GOV $MCD_END $MCD_ESM_PIT $MCD_ESM_MIN"
+    },
+    "PROXY_ACTIONS_DSR": {
+      "contract": "proxyActionDsr.sol",
+      "prj": "dss-proxy-actions-optimized",
+      "path": "src/DssProxyActions.sol:DssProxyActionsDsr"
+    },
+
+    "FL_REWARDER_GOV_USD_HOLDER": {
+      "prj": "freeliquid-ct-optimized",
+      "comment": "0xB5eD38D947574b33C48CCF3755753c38A2b82203",
+      "gen": "hevm flatten --source-file src/rewardsDecayHolder.sol --json-file out/dapp.sol.json",
+      "path": "src/rewardsDecayHolder.sol:StakingRewardsDecayHolder",
+      "sign": "StakingRewardsDecayHolder(address)",
+      "args": "$FL_REWARDER_GOV_USD"
+    },
+    "FL_REWARDER_STABLES_HOLDER": {
+      "prj": "freeliquid-ct-optimized",
+      "comment": "0x24a2bEa50343f6Ae999D0cb694Ebf65eD3C195b0",
+      "gen": "hevm flatten --source-file src/rewardsDecayHolder.sol --json-file out/dapp.sol.json",
+      "path": "src/rewardsDecayHolder.sol:StakingRewardsDecayHolder",
+      "sign": "StakingRewardsDecayHolder(address)",
+      "args": "$FL_REWARDER_STABLES"
+    },
+    "FL_REWARD_AGGREGATOR": {
+      "prj": "freeliquid-ct-optimized",
+      "comment": "0xe36E7EB5a1AA998cba8cF415348EAA1d960662fb",
+      "gen": "hevm flatten --source-file src/rewardDecay.sol --json-file out/dapp.sol.json",
+      "path": "src/rewardDecay.sol:RewardDecayAggregator",
+      "sign": "RewardDecayAggregator(address,address)",
+      "args": "$FL_REWARDER_GOV_USD $FL_REWARDER_STABLES"
+    },
+
+    "CDP_MANAGER": {
+      "comment":"(address vat_)",
+      "contract": "dssCdpManager.sol",
+      "prj": "dss-cdp-manager",
+      "path": "src/DssCdpManager.sol:DssCdpManager",
+      "sign": "DssCdpManager(address)",
+      "args": "$MCD_VAT"
+    },
+
+    "DSR_MANAGER": {
+      "comment":"(address pot_, address daiJoin_)",
+      "contract": "dsrManager.sol",
+      "prj": "dsr-manager",
+      "path": "src/DsrManager.sol:DsrManager",
+      "sign": "DsrManager(address,address)",
+      "args": "$MCD_POT $MCD_JOIN_DAI"
+    },
+
+    "ILK_REGISTRY": {
+      "comment":"(address vat_, address cat_, address spot_)",
+      "contract": "ilkRegistry.sol",
+      "prj": "ilk-registry-optimized",
+      "path": "src/IlkRegistry.sol:IlkRegistry",
+      "sign": "IlkRegistry(address,address,address)",
+      "args": "$MCD_VAT $MCD_CAT $MCD_SPOT"
+    },
+
+    "PROXY_REGISTRY": {
+      "comment":"(DSProxyFactory factory_)",
+      "contract": "proxyRegistry.sol",
+      "prj": "proxy-registry",
+      "path": "src/ProxyRegistry.sol:ProxyRegistry",
+      "sign": "ProxyRegistry(address)",
+      "args": "$PROXY_FACTORY"
+    },
+
+    "MCD_JOIN_USDCDAI_A": {
+      "prj": "freeliquid-ct-optimized",
+      "comment": "(address vat_, bytes32 ilk_, address gem_, address rewarder_)",
+      "gen": "hevm flatten --source-file src/reward.sol --json-file out/dapp.sol.json",
+      "path": "src/reward.sol:GemJoinWithReward",
+      "sign": "GemJoinWithReward(address,bytes32,address,address)",
+      "args": "$MCD_VAT 0x555344434441492d410000000000000000000000000000000000000000000000 $USDCDAI $FL_REWARDER"
+    },
+    "MCD_JOIN_USDTDAI_A": {
+      "prj": "freeliquid-ct-optimized",
+      "comment": "(address vat_, bytes32 ilk_, address gem_, address rewarder_)",
+      "gen": "hevm flatten --source-file src/reward.sol --json-file out/dapp.sol.json",
+      "path": "src/reward.sol:GemJoinWithReward",
+      "sign": "GemJoinWithReward(address,bytes32,address,address)",
+      "args": "$MCD_VAT 0x555344544441492d410000000000000000000000000000000000000000000000 $USDTDAI $FL_REWARDER"
+    },
+    "MCD_JOIN_USDTUSDC_A": {
+      "prj": "freeliquid-ct-optimized",
+      "comment": "(address vat_, bytes32 ilk_, address gem_, address rewarder_)",
+      "gen": "hevm flatten --source-file src/reward.sol --json-file out/dapp.sol.json",
+      "path": "src/reward.sol:GemJoinWithReward",
+      "sign": "GemJoinWithReward(address,bytes32,address,address)",
+      "args": "$MCD_VAT 0x55534454555344432d4100000000000000000000000000000000000000000000 $USDTUSDC $FL_REWARDER"
+    },
+    "MCD_JOIN_USDNDAI_A": {
+      "prj": "freeliquid-ct-optimized",
+      "comment": "(address vat_, bytes32 ilk_, address gem_, address rewarder_)",
+      "gen": "hevm flatten --source-file src/reward.sol --json-file out/dapp.sol.json",
+      "path": "src/reward.sol:GemJoinWithReward",
+      "sign": "GemJoinWithReward(address,bytes32,address,address)",
+      "args": "$MCD_VAT 0x5553444e4441492d410000000000000000000000000000000000000000000000 $USDNDAI $FL_REWARDER"
+    },
+    "MCD_JOIN_USDTUSDN_A": {
+      "prj": "freeliquid-ct-optimized",
+      "comment": "(address vat_, bytes32 ilk_, address gem_, address rewarder_)",
+      "gen": "hevm flatten --source-file src/reward.sol --json-file out/dapp.sol.json",
+      "path": "src/reward.sol:GemJoinWithReward",
+      "sign": "GemJoinWithReward(address,bytes32,address,address)",
+      "args": "$MCD_VAT 0x555344545553444e2d4100000000000000000000000000000000000000000000 $USDTUSDN $FL_REWARDER"
+    },
+    "MCD_JOIN_USDCUSDN_A": {
+      "prj": "freeliquid-ct-optimized",
+      "comment": "(address vat_, bytes32 ilk_, address gem_, address rewarder_)",
+      "gen": "hevm flatten --source-file src/reward.sol --json-file out/dapp.sol.json",
+      "path": "src/reward.sol:GemJoinWithReward",
+      "sign": "GemJoinWithReward(address,bytes32,address,address)",
+      "args": "$MCD_VAT 0x555344435553444e2d4100000000000000000000000000000000000000000000 $USDCUSDN $FL_REWARDER"
+    },
+
+
+    "MCD_FLIP_USDCDAI_A": {
+      "comment": "(address vat_, address cat_, bytes32 ilk_)",
+      "contract": "flipper.sol",
+
+      "prj": "freeliquid-ct",
+      "path": "lib/dss/src/flip.sol:Flipper",
+      "sign": "Flipper(address,address,bytes32)",
+      "args": "$MCD_VAT $MCD_CAT 0x555344434441492d410000000000000000000000000000000000000000000000"
+    },
+    "MCD_FLIP_USDTDAI_A": {
+      "comment": "(address vat_, address cat_, bytes32 ilk_)",
+      "contract": "flipper.sol",
+
+      "prj": "freeliquid-ct",
+      "path": "lib/dss/src/flip.sol:Flipper",
+      "sign": "Flipper(address,address,bytes32)",
+      "args": "$MCD_VAT $MCD_CAT 0x555344544441492d410000000000000000000000000000000000000000000000"
+    },
+    "MCD_FLIP_USDTUSDC_A": {
+      "comment": "(address vat_, address cat_, bytes32 ilk_)",
+      "contract": "flipper.sol",
+
+      "prj": "freeliquid-ct",
+      "path": "lib/dss/src/flip.sol:Flipper",
+      "sign": "Flipper(address,address,bytes32)",
+      "args": "$MCD_VAT $MCD_CAT 0x55534454555344432d4100000000000000000000000000000000000000000000"
+    },
+    "MCD_FLIP_USDNDAI_A": {
+      "comment": "(address vat_, address cat_, bytes32 ilk_)",
+      "contract": "flipper.sol",
+
+      "prj": "freeliquid-ct",
+      "path": "lib/dss/src/flip.sol:Flipper",
+      "sign": "Flipper(address,address,bytes32)",
+      "args": "$MCD_VAT $MCD_CAT 0x5553444e4441492d410000000000000000000000000000000000000000000000"
+    },
+    "MCD_FLIP_USDTUSDN_A": {
+      "comment": "(address vat_, address cat_, bytes32 ilk_)",
+      "contract": "flipper.sol",
+
+      "prj": "freeliquid-ct",
+      "path": "lib/dss/src/flip.sol:Flipper",
+      "sign": "Flipper(address,address,bytes32)",
+      "args": "$MCD_VAT $MCD_CAT 0x555344545553444e2d4100000000000000000000000000000000000000000000"
+    },
+    "MCD_FLIP_USDCUSDN_A": {
+      "comment": "(address vat_, address cat_, bytes32 ilk_)",
+      "contract": "flipper.sol",
+
+      "prj": "freeliquid-ct",
+      "path": "lib/dss/src/flip.sol:Flipper",
+      "sign": "Flipper(address,address,bytes32)",
+      "args": "$MCD_VAT $MCD_CAT 0x555344435553444e2d4100000000000000000000000000000000000000000000"
+    },
+
+    "PROXY_DEPLOYER": {
+      "comment":"(address _cacheAddr)",
+      "prj": "ds-proxy",
+      "gen": "hevm flatten --source-file src/proxy.sol --json-file out/dapp.sol.json",
+      "path": "src/proxy.sol:DSProxy",
+      "sign": "DSProxy(address)",
+      "args": "$PROXY_CACHE"
+    },
+
+    "VAL_USDCDAI": {
+      "path":"src/oracles.sol:UniswapAdapterPriceOracle_Buck_Buck",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/oracles.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "VAL_USDTDAI": {
+      "path":"src/oracles.sol:UniswapAdapterPriceOracle_USDT_Buck",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/oracles.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "VAL_USDTUSDC": {
+      "path":"src/oracles.sol:UniswapAdapterPriceOracle_USDT_Buck",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/oracles.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "VAL_USDNDAI": {
+      "path":"src/oracles.sol:UniswapAdapterPriceOracle_Buck_Buck",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/oracles.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "VAL_USDTUSDN": {
+      "path":"src/oracles.sol:UniswapAdapterPriceOracle_USDT_Buck",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/oracles.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "VAL_USDCUSDN": {
+      "path":"src/oracles.sol:UniswapAdapterPriceOracle_Buck_Buck",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/oracles.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "FAUCET": {
+      "path":"src/RestrictedTokenFaucet.sol:RestrictedTokenFaucet",
+      "prj":"token-faucet out",
+      "gen": "hevm flatten --source-file src/RestrictedTokenFaucet.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "PROXY_FACTORY": {
+      "path":"src/proxy.sol:DSProxyFactory",
+      "prj":"ds-proxy out",
+      "gen": "hevm flatten --source-file src/proxy.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "FL_REWARDER": {
+      "path":"src/reward.sol:StakingRewards",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/reward.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "FL_REWARD_MAIN_CHECKER_CONTRACT": {
+      "path":"src/gemForRewardChecker.sol:GemForRewardChecker",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/gemForRewardChecker.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "FL_UNI_ADAPTER_STABLES": {
+      "path":"src/uni.sol:UniswapAdapterForStables",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/uni.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "FL_UNI_ADAPTER_ONE_STABLE": {
+      "path":"src/uni.sol:UniswapAdapterWithOneStable",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/uni.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "FL_REWARDER_GOV_USD": {
+      "path":"src/rewardDecay.sol:StakingRewardsDecay",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/rewardDecay.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "FL_REWARDER_STABLES": {
+      "path":"src/rewardDecay.sol:StakingRewardsDecay",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/rewardDecay.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "FL_REWARD_PRICE_PROVIDER": {
+      "path":"src/priceProvider.sol:PriceProvider",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/priceProvider.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "PROXY_ACTIONS": {
+      "path":"src/DssProxyActions.sol:DssProxyActions",
+      "prj":"dss-proxy-actions",
+      "gen": "hevm flatten --source-file src/DssProxyActions.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "PROXY_ACTIONS_END": {
+      "path":"src/DssProxyActions.sol:DssProxyActionsEnd",
+      "prj":"dss-proxy-actions",
+      "gen": "hevm flatten --source-file src/DssProxyActions.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "PROXY_ACTIONS_REWARD": {
+      "path":"src/reward.sol:RewardProxyActions",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/reward.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "GET_CDPS": {
+      "path":"src/GetCdps.sol:GetCdps",
+      "prj":"dss-cdp-manager",
+      "gen": "hevm flatten --source-file src/GetCdps.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "OSM_MOM": {
+      "path":"src/OsmMom.sol:OsmMom",
+      "prj":"osm-mom",
+      "gen": "hevm flatten --source-file src/OsmMom.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "MCD_GOV_ACTIONS": {
+      "path":"src/govActions.sol:GovActions",
+      "prj":"dss-deploy",
+      "gen": "hevm flatten --source-file src/govActions.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "PROXY_PAUSE_ACTIONS": {
+      "path":"src/DssDeployPauseProxyActions.sol:DssDeployPauseProxyActions",
+      "prj":"dss-deploy-pause-proxy-actions",
+      "gen": "hevm flatten --source-file src/DssDeployPauseProxyActions.sol --json-file out/dapp.sol.json"
+    },
+
+
+    "PROXY_PAUSE_ACTIONS_ADD": {
+      "path":"src/DssDeployPauseProxyActionsAddon.sol:DssDeployPauseProxyActionsAddon",
+      "prj":"freeliquid-ct-optimized",
+      "gen": "hevm flatten --source-file src/DssDeployPauseProxyActionsAddon.sol --json-file out/dapp.sol.json"
+    }
+  }
+}

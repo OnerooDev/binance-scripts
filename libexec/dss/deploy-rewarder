@@ -1,0 +1,133 @@
+#!/usr/bin/env bash
+
+#  Copyright (C) 2020 Freeliquid
+
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU Affero General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Affero General Public License for more details.
+
+#  You should have received a copy of the GNU Affero General Public License
+#  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# shellcheck source=lib/common.sh
+. "$LIB_DIR/common.sh"
+
+
+test -z "$MCD_GOV" && echo "There is no MCD_GOV configured" && exit 1
+
+
+# Create deploy contract
+FL_REWARDER=$(dappCreate freeliquid-ct-optimized StakingRewards)
+log "FL_REWARDER=$FL_REWARDER"
+export FL_REWARDER
+
+FL_REWARD_MAIN_CHECKER_CONTRACT=$(dappCreate freeliquid-ct-optimized GemForRewardChecker)
+log "FL_REWARD_MAIN_CHECKER_CONTRACT=$FL_REWARD_MAIN_CHECKER_CONTRACT"
+export FL_REWARD_MAIN_CHECKER_CONTRACT
+
+rewarderSingleTokenChecker=$(jq -r ".rewarder_token_checker | values" "$CONFIG_FILE")
+FL_REWARD_CHECKER_CONTRACT=$(dappCreate freeliquid-ct-optimized "$rewarderSingleTokenChecker" "$MCD_DAI" "$MCD_GOV")
+log "FL_REWARD_CHECKER_CONTRACT=$FL_REWARD_CHECKER_CONTRACT"
+export FL_REWARD_CHECKER_CONTRACT
+
+sethSend "$FL_REWARD_MAIN_CHECKER_CONTRACT" 'addChecker(address)' "$FL_REWARD_CHECKER_CONTRACT"
+
+duration=$(jq -r ".rewarder_duration | values" "$CONFIG_FILE")
+initreward=$(jq -r ".rewarder_initreward | values" "$CONFIG_FILE")
+starttime=$(jq -r ".rewarder_starttime | values" "$CONFIG_FILE")
+fairDistribution=$(jq -r ".rewarder_fair_distribution | values" "$CONFIG_FILE")
+
+{ test "$duration" == "" || test "$initreward" == "" || test "$starttime" == "" || test "$fairDistribution" == ""; } && echo "No parameters for rewarder" && exit 1
+
+initreward=$(bc -l <<< "${initreward}  * 10^18")
+sethSend "$FL_REWARDER" "initialize(address,uint256,uint256,uint256)" "$MCD_GOV" $duration $initreward $starttime
+
+if [[ "${fairDistribution}" == "true" ]]; then
+	fairDistributionMaxValue=$(jq -r ".rewarder_fair_distribution_max_value | values" "$CONFIG_FILE")
+	fairDistributionTime=$(jq -r ".rewarder_fair_distribution_time | values" "$CONFIG_FILE")
+	{ test "$fairDistributionMaxValue" == "" || test "$fairDistributionTime" == ""; } && echo "No fairDistribution parameters for rewarder" && exit 1
+	sethSend "$FL_REWARDER" "setupFairDistribution(uint256,uint256)" $fairDistributionMaxValue $fairDistributionTime
+fi
+
+sethSend "$MCD_GOV" "mint(address,uint256)" "$FL_REWARDER" "$(seth --to-uint256 "$initreward")"
+
+
+nextStagesStartTime=$(bc <<< "${starttime}+${duration}")
+echo "nextStagesStartTime:"$nextStagesStartTime
+
+
+
+FL_UNI_ADAPTER_STABLES=$(dappCreate freeliquid-ct-optimized UniswapAdapterForStables)
+log "FL_UNI_ADAPTER_STABLES=$FL_UNI_ADAPTER_STABLES"
+export FL_UNI_ADAPTER_STABLES
+
+FL_UNI_ADAPTER_ONE_STABLE=$(dappCreate freeliquid-ct-optimized UniswapAdapterWithOneStable)
+log "FL_UNI_ADAPTER_ONE_STABLE=$FL_UNI_ADAPTER_ONE_STABLE"
+export FL_UNI_ADAPTER_ONE_STABLE
+
+sethSend "$FL_UNI_ADAPTER_ONE_STABLE" "setup(address)" "$MCD_DAI"
+
+deployStakingRewardsDecay() {
+
+    set -e
+
+	local varName; varName=$1
+	local rewardsAmount; rewardsAmount=$2
+	local rewardsAmount; rewardsAmount=$(bc -l <<< "${rewardsAmount}  * 10^18")
+	local epochCount; epochCount=$3
+	local starttime; starttime=$4
+	local duration; duration=$5
+	local rewards_distr; rewards_distr=${6}
+
+	{ test "$varName" == ""; } && echo "No name provided for decay rewarder" && exit 1
+    { test "$rewardsAmount" == "" || test "$epochCount" == "" || test "$starttime" == "" || test "$duration" == ""; } && echo "No parameters for ${varName} rewarder" && exit 1
+    { test "$rewards_distr" == ""; } && echo "No rewards distribution provided for ${varName} rewarder" && exit 1
+
+	rewardContract=$(dappCreate freeliquid-ct-optimized StakingRewardsDecay)
+	log "${varName}="$(eval "echo ${rewardContract}")""
+	eval "export ${varName}=${rewardContract}"
+
+	sethSend "$MCD_GOV" "mint(address,uint256)" "$rewardContract" "$(seth --to-uint256 "$rewardsAmount")"
+	sethSend "$rewardContract" "initialize(address,uint)" "$MCD_GOV" "$(seth --to-uint256 "$epochCount")"
+
+	# initAllEpochs(uint256[] memory rewards, uint256 starttime, uint256 duration)
+	sethSend "$rewardContract" "initAllEpochs(uint256[] memory,uint256,uint256)" "${rewards_distr}" "$(seth --to-uint256 "$starttime")" "$(seth --to-uint256 "$duration")"
+	sethSend "$rewardContract" "approveEpochsConsistency()"
+
+	eval "export ${varName}_HOLDER=$(seth call "$rewardContract" "holder()(address)")"
+}
+
+
+
+deployStakingRewardsDecayCfg() {
+	local name; name=${1}
+	# starttime=$(jq -r ".rewardStages.${name} | .starttime | values" "$CONFIG_FILE")
+	starttime=${2}
+	rewardsAmount=$(jq -r ".rewardStages.${name} | .rewardsAmount | values" "$CONFIG_FILE")
+	epochCount=$(jq -r ".rewardStages.${name} | .epochCount | values" "$CONFIG_FILE")
+	duration=$(jq -r ".rewardStages.${name} | .duration | values" "$CONFIG_FILE")
+	rewardsDistr=$(jq -r ".rewardStages.${name} | .rewardsDistr | values" "$CONFIG_FILE")
+	deployStakingRewardsDecay "${name}" "${rewardsAmount}" "${epochCount}" "${starttime}" "${duration}" "${rewardsDistr}"
+}
+
+deployStakingRewardsDecayCfg "FL_REWARDER_GOV_USD" $nextStagesStartTime
+deployStakingRewardsDecayCfg "FL_REWARDER_STABLES" $nextStagesStartTime
+
+FL_REWARD_AGGREGATOR=$(dappCreate freeliquid-ct-optimized RewardDecayAggregator "$FL_REWARDER_GOV_USD" "$FL_REWARDER_STABLES")
+
+sethSend "$FL_REWARDER_GOV_USD" "setupAggregator(address)" "$FL_REWARD_AGGREGATOR"
+sethSend "$FL_REWARDER_STABLES" "setupAggregator(address)" "$FL_REWARD_AGGREGATOR"
+
+
+sethSend "$FL_REWARDER_GOV_USD" "setupGemForRewardChecker(address)" "$FL_REWARD_MAIN_CHECKER_CONTRACT"
+sethSend "$FL_REWARDER_STABLES" "setupGemForRewardChecker(address)" "$FL_REWARD_MAIN_CHECKER_CONTRACT"
+sethSend "$FL_REWARDER" "setupGemForRewardChecker(address)" "$FL_REWARD_MAIN_CHECKER_CONTRACT"
+
+export FL_REWARD_AGGREGATOR
+
