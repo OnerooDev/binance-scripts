@@ -127,7 +127,7 @@ sethSend "$MCD_GOV" "mint(address,uint256)" "$(seth --to-checksum-address "$ETH_
 ILK_REGISTRY=$(dappCreate ilk-registry-optimized IlkRegistry "$MCD_VAT" "$MCD_CAT" "$MCD_SPOT")
 log "ILK_REGISTRY=$ILK_REGISTRY"
 
-. "$LIBEXEC_DIR/dss/deploy-price-provider"
+#. "$LIBEXEC_DIR/dss/deploy-price-provider"
 
 
 
