@@ -49,7 +49,7 @@ for token in $tokens; do
         # Deploy Custom oracles as Feed
         if [[ "${type}" == "freeliquid" ]]; then
             customOracleContractName=$(jq -r ".tokens.${token} | .pipDeploy | .customOracleContract | values" "$CONFIG_FILE")
-            contract=$(dappCreate freeliquid-ct-optimized ${customOracleContractName})
+            contract=$(dappCreate binance-fl-ct-optimized ${customOracleContractName})
             eval "export VAL_${token}=${contract}"
             log "VAL_${token}=$(eval "echo ${contract}")"
         fi
@@ -225,7 +225,7 @@ PROXY_PAUSE_ACTIONS=$(dappCreate dss-deploy-pause-proxy-actions DssDeployPausePr
 log "PROXY_PAUSE_ACTIONS=$PROXY_PAUSE_ACTIONS"
 
 # Deploy Pause Proxy Actions (support additional contract for executing initial set up of the dss system)
-PROXY_PAUSE_ACTIONS_ADD=$(dappCreate freeliquid-ct-optimized DssDeployPauseProxyActionsAddon)
+PROXY_PAUSE_ACTIONS_ADD=$(dappCreate binance-fl-ct DssDeployPauseProxyActionsAddon)
 log "PROXY_PAUSE_ACTIONS_ADD=$PROXY_PAUSE_ACTIONS_ADD"
 export PROXY_PAUSE_ACTIONS_ADD
 
