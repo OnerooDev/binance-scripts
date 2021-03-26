@@ -25,7 +25,7 @@ test -z "$ILK_REGISTRY" && echo "There is no ILK_REGISTRY configured" && exit 1
 
 
 
-FL_REWARD_PRICE_PROVIDER=$(dappCreate freeliquid-ct-optimized PriceProvider)
+FL_REWARD_PRICE_PROVIDER=$(dappCreate binance-fl-ct-optimized PriceProvider)
 export FL_REWARD_PRICE_PROVIDER
 
 

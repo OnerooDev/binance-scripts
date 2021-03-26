@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
     solcFlagsPerPrj = {"dss-deploy-optimized":"--optimize",
                        "dss-deploy-optimized-11":"--optimize",
-                       "freeliquid-ct-optimized":"--optimize",
+                       "binance-fl-ct-optimized":"--optimize",
                        "dss-proxy-actions-optimized":"--optimize",
                        "ilk-registry-optimized":"--optimize --optimize-runs=1000000"}
     onlyOnePrj=None
