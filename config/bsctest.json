@@ -22,13 +22,12 @@
 
   "tokens": {
 
-    "ORT": {(usdcdai)
+    "ORT": {
       "import": {
         "gem": "0xc904d30e33a4f914cdf042215faea40d5b55605c"
       },
       "pipDeploy": {
         "osmDelay": "0",
-        "type": "freeliquid",
         "price": "1"
       },
       "ilks": {

@@ -1,31 +1,31 @@
 {
     "contracts": {
-        "freeliquid-ct_abe3d2c": {
+        "binance-fl-ct_b84b2da": {
             "deps": {
                 "ds-test": "ds-test_eb7148d",
                 "ds-note": "ds-note_c673c9d",
                 "ds-token": "ds-token_ae74f6d"
             },
-            "name": "freeliquid-ct",
+            "name": "binance-fl-ct",
             "repo": {
-                "name": "freeliquid-ct-abe3d2c",
+                "name": "binance-fl-ct-b84b2da",
                 "ref": "HEAD",
-                "rev": "abe3d2c4a9101f64b29600d1b9d14afe280feb91",
-                "url": "https://github.com/Freeliquid/freeliquid-ct"
+                "rev": "b84b2da290788f09d24f1d81572d96fdbd5997ad",
+                "url": "https://github.com/SeerDay/binance-fl-ct"
             }
         },
-        "freeliquid-ct-optimized_abe3d2c": {
+        "binance-fl-ct-optimized_b84b2da": {
             "deps": {
                 "ds-test": "ds-test_eb7148d",
                 "ds-note": "ds-note_c673c9d",
                 "ds-token": "ds-token_ae74f6d"
             },
-            "name": "freeliquid-ct-optimized",
+            "name": "binance-fl-ct-optimized",
             "repo": {
-                "name": "freeliquid-ct-abe3d2c",
+                "name": "binance-fl-ct-b84b2da",
                 "ref": "HEAD",
-                "rev": "abe3d2c4a9101f64b29600d1b9d14afe280feb91",
-                "url": "https://github.com/Freeliquid/freeliquid-ct"
+                "rev": "b84b2da290788f09d24f1d81572d96fdbd5997ad",
+                "url": "https://github.com/SeerDay/binance-fl-ct"
             }
         },
 
@@ -531,8 +531,8 @@
     },
     "this": {
         "deps": {
-            "freeliquid-ct":"freeliquid-ct_abe3d2c",
-            "freeliquid-ct-optimized":"freeliquid-ct-optimized_abe3d2c",
+            "binance-fl-ct":"binance-fl-ct_b84b2da",
+            "binance-fl-ct-optimized":"binance-fl-ct-optimized_b84b2da",
 
             "ds-chief": "ds-chief_ea05ee0",
             "ds-proxy": "ds-proxy_abcc710",
@@ -561,7 +561,7 @@
             "token-faucet": "token-faucet_2f83912",
             "vote-proxy": "vote-proxy_8e997f3"
         },
-        "name": "dss-deploy-scripts"
+        "name": "binance-scripts"
     },
     "version": 1
 }
