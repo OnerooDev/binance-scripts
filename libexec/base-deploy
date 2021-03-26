@@ -242,7 +242,7 @@ if [[ "$PROXY_DEPLOYER" == "0x0000000000000000000000000000000000000000" ]]; then
 fi
 
 # Set the proxy address as root of the roles (in order to be able to do all the variables set up)
-sethSend "$MCD_ADM" 'setRootUser(address,bool)' "$PROXY_DEPLOYER" true
+#sethSend "$MCD_ADM" 'setRootUser(address,bool)' "$PROXY_DEPLOYER" true
 
 # Deploy chief as new $MCD_ADM if there isn't an authority in the config file
 MCD_ADM=$(jq -r ".import.authority | values" "$CONFIG_FILE")
