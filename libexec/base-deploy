@@ -121,8 +121,8 @@ export MCD_ESM_PIT
 # shellcheck source=/dev/null
 . "$OUT_DIR/load-core-addr-temp"
 
-. "$LIBEXEC_DIR/dss/deploy-rewarder"
-
+#. "$LIBEXEC_DIR/dss/deploy-rewarder"
+sethSend "$MCD_GOV" "mint(address,uint256)" "$(seth --to-checksum-address "$ETH_FROM")"
 # Deploy IlkRegistry
 ILK_REGISTRY=$(dappCreate ilk-registry-optimized IlkRegistry "$MCD_VAT" "$MCD_CAT" "$MCD_SPOT")
 log "ILK_REGISTRY=$ILK_REGISTRY"
@@ -172,8 +172,8 @@ log "PROXY_ACTIONS_END=$PROXY_ACTIONS_END"
 PROXY_ACTIONS_DSR=$(dappCreate dss-proxy-actions-optimized DssProxyActionsDsr)
 log "PROXY_ACTIONS_DSR=$PROXY_ACTIONS_DSR"
 
-PROXY_ACTIONS_REWARD=$(dappCreate freeliquid-ct-optimized RewardProxyActions)
-log "PROXY_ACTIONS_REWARD=$PROXY_ACTIONS_REWARD"
+#PROXY_ACTIONS_REWARD=$(dappCreate freeliquid-ct-optimized RewardProxyActions)
+#log "PROXY_ACTIONS_REWARD=$PROXY_ACTIONS_REWARD"
 
 
 # Deploy CdpManager
@@ -260,10 +260,10 @@ if [[ -z "$MCD_ADM" ]]; then
 else
     copy vote-proxy
 fi
-
-sethSend "$FL_REWARDER_GOV_USD" 'rely(address)' "$MCD_PAUSE_PROXY"
-sethSend "$FL_REWARDER_STABLES" 'rely(address)' "$MCD_PAUSE_PROXY"
-sethSend "$FL_REWARDER" 'rely(address)' "$MCD_PAUSE_PROXY"
+#
+#sethSend "$FL_REWARDER_GOV_USD" 'rely(address)' "$MCD_PAUSE_PROXY"
+#sethSend "$FL_REWARDER_STABLES" 'rely(address)' "$MCD_PAUSE_PROXY"
+#sethSend "$FL_REWARDER" 'rely(address)' "$MCD_PAUSE_PROXY"
 
 if [[ -n "$GOV_GUARD" ]]; then
     sethSend "$GOV_GUARD" 'setRoot(address)' "$MCD_PAUSE_PROXY"
@@ -347,17 +347,7 @@ cat > "$OUT_DIR"/addresses.json <<EOF
     "PROXY_ACTIONS": "$PROXY_ACTIONS",
     "PROXY_ACTIONS_END": "$PROXY_ACTIONS_END",
     "PROXY_ACTIONS_DSR": "$PROXY_ACTIONS_DSR",
-    "PROXY_ACTIONS_REWARD": "$PROXY_ACTIONS_REWARD",
     "PROXY_PAUSE_ACTIONS_ADD": "$PROXY_PAUSE_ACTIONS_ADD",
-    "FL_REWARDER": "$FL_REWARDER",
-    "FL_REWARDER_GOV_USD": "$FL_REWARDER_GOV_USD",
-    "FL_REWARDER_STABLES": "$FL_REWARDER_STABLES",
-    "FL_REWARDER_GOV_USD_HOLDER": "$FL_REWARDER_GOV_USD_HOLDER",
-    "FL_REWARDER_STABLES_HOLDER": "$FL_REWARDER_STABLES_HOLDER",
-    "FL_REWARD_AGGREGATOR": "$FL_REWARD_AGGREGATOR",
-    "FL_REWARD_MAIN_CHECKER_CONTRACT": "$FL_REWARD_MAIN_CHECKER_CONTRACT",
-    "FL_REWARD_CHECKER_CONTRACT": "$FL_REWARD_CHECKER_CONTRACT",
-    "FL_REWARD_PRICE_PROVIDER": "$FL_REWARD_PRICE_PROVIDER",
     "FL_UNI_ADAPTER_STABLES": "$FL_UNI_ADAPTER_STABLES",
     "FL_UNI_ADAPTER_ONE_STABLE": "$FL_UNI_ADAPTER_ONE_STABLE",
     "CDP_MANAGER": "$CDP_MANAGER",
