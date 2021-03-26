@@ -561,7 +561,7 @@
             "token-faucet": "token-faucet_2f83912",
             "vote-proxy": "vote-proxy_8e997f3"
         },
-        "name": "binance-scripts"
+        "name": "dss-deploy-scripts"
     },
     "version": 1
 }
