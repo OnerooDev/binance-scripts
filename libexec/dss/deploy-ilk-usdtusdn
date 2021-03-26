@@ -19,7 +19,7 @@
 . "$LIB_DIR/common.sh"
 
 if [[ -z "$USDTUSDN" ]]; then
-    USDTUSDN=$(dappCreate freeliquid-ct-optimized UniswapPairUSDTUSDCStub "$(seth --to-uint256 "$(seth --to-wei 1000000 ETH)")")
+    USDTUSDN=$(dappCreate binance-fl-ct-optimized UniswapPairUSDTUSDCStub "$(seth --to-uint256 "$(seth --to-wei 1000000 ETH)")")
     log "USDTUSDN=$USDTUSDN"
     export USDTUSDN
 fi

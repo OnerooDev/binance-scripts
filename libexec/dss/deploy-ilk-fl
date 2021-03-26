@@ -40,13 +40,13 @@ test -z "$MCD_DEPLOY" && exit 1
 MCD_VAT=$(seth call "$MCD_DEPLOY" "vat()(address)")
 if [[ "$rewarder" != "" ]]; then
 	test -z "$adapter" && exit 1
-	contract=$(dappCreate freeliquid-ct-optimized "$ilkJoin" "$MCD_VAT" "$(seth --to-bytes32 "$(seth --from-ascii "$ilk")")" "$(eval echo "\$${tok}")" "$rewarder")
+	contract=$(dappCreate binance-fl-ct-optimized "$ilkJoin" "$MCD_VAT" "$(seth --to-bytes32 "$(seth --from-ascii "$ilk")")" "$(eval echo "\$${tok}")" "$rewarder")
 	sethSend "$rewarder" "registerPairDesc(address,address,uint,address)" "$(eval echo "\$${tok}")" "${adapter}" 1 "${contract}"
 else
 	if [[ "$decimals" != "" && "$decimals" != "NONE" ]]; then
-	    contract=$(dappCreate freeliquid-ct-optimized "$ilkJoin" "$MCD_VAT" "$(seth --to-bytes32 "$(seth --from-ascii "$ilk")")" "$(eval echo "\$${tok}")" "$decimals")
+	    contract=$(dappCreate binance-fl-ct-optimized "$ilkJoin" "$MCD_VAT" "$(seth --to-bytes32 "$(seth --from-ascii "$ilk")")" "$(eval echo "\$${tok}")" "$decimals")
 	else
-	    contract=$(dappCreate freeliquid-ct-optimized "$ilkJoin" "$MCD_VAT" "$(seth --to-bytes32 "$(seth --from-ascii "$ilk")")" "$(eval echo "\$${tok}")")
+	    contract=$(dappCreate binance-fl-ct-optimized "$ilkJoin" "$MCD_VAT" "$(seth --to-bytes32 "$(seth --from-ascii "$ilk")")" "$(eval echo "\$${tok}")")
 	fi
 fi
 

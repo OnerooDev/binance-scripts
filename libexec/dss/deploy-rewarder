@@ -23,16 +23,16 @@ test -z "$MCD_GOV" && echo "There is no MCD_GOV configured" && exit 1
 
 
 # Create deploy contract
-FL_REWARDER=$(dappCreate freeliquid-ct-optimized StakingRewards)
+FL_REWARDER=$(dappCreate binance-fl-ct-optimized StakingRewards)
 log "FL_REWARDER=$FL_REWARDER"
 export FL_REWARDER
 
-FL_REWARD_MAIN_CHECKER_CONTRACT=$(dappCreate freeliquid-ct-optimized GemForRewardChecker)
+FL_REWARD_MAIN_CHECKER_CONTRACT=$(dappCreate binance-fl-ct-optimized GemForRewardChecker)
 log "FL_REWARD_MAIN_CHECKER_CONTRACT=$FL_REWARD_MAIN_CHECKER_CONTRACT"
 export FL_REWARD_MAIN_CHECKER_CONTRACT
 
 rewarderSingleTokenChecker=$(jq -r ".rewarder_token_checker | values" "$CONFIG_FILE")
-FL_REWARD_CHECKER_CONTRACT=$(dappCreate freeliquid-ct-optimized "$rewarderSingleTokenChecker" "$MCD_DAI" "$MCD_GOV")
+FL_REWARD_CHECKER_CONTRACT=$(dappCreate binance-fl-ct-optimized "$rewarderSingleTokenChecker" "$MCD_DAI" "$MCD_GOV")
 log "FL_REWARD_CHECKER_CONTRACT=$FL_REWARD_CHECKER_CONTRACT"
 export FL_REWARD_CHECKER_CONTRACT
 
@@ -63,11 +63,11 @@ echo "nextStagesStartTime:"$nextStagesStartTime
 
 
 
-FL_UNI_ADAPTER_STABLES=$(dappCreate freeliquid-ct-optimized UniswapAdapterForStables)
+FL_UNI_ADAPTER_STABLES=$(dappCreate binance-fl-ct-optimized UniswapAdapterForStables)
 log "FL_UNI_ADAPTER_STABLES=$FL_UNI_ADAPTER_STABLES"
 export FL_UNI_ADAPTER_STABLES
 
-FL_UNI_ADAPTER_ONE_STABLE=$(dappCreate freeliquid-ct-optimized UniswapAdapterWithOneStable)
+FL_UNI_ADAPTER_ONE_STABLE=$(dappCreate binance-fl-ct-optimized UniswapAdapterWithOneStable)
 log "FL_UNI_ADAPTER_ONE_STABLE=$FL_UNI_ADAPTER_ONE_STABLE"
 export FL_UNI_ADAPTER_ONE_STABLE
 
@@ -89,7 +89,7 @@ deployStakingRewardsDecay() {
     { test "$rewardsAmount" == "" || test "$epochCount" == "" || test "$starttime" == "" || test "$duration" == ""; } && echo "No parameters for ${varName} rewarder" && exit 1
     { test "$rewards_distr" == ""; } && echo "No rewards distribution provided for ${varName} rewarder" && exit 1
 
-	rewardContract=$(dappCreate freeliquid-ct-optimized StakingRewardsDecay)
+	rewardContract=$(dappCreate binance-fl-ct-optimized StakingRewardsDecay)
 	log "${varName}="$(eval "echo ${rewardContract}")""
 	eval "export ${varName}=${rewardContract}"
 
@@ -119,7 +119,7 @@ deployStakingRewardsDecayCfg() {
 deployStakingRewardsDecayCfg "FL_REWARDER_GOV_USD" $nextStagesStartTime
 deployStakingRewardsDecayCfg "FL_REWARDER_STABLES" $nextStagesStartTime
 
-FL_REWARD_AGGREGATOR=$(dappCreate freeliquid-ct-optimized RewardDecayAggregator "$FL_REWARDER_GOV_USD" "$FL_REWARDER_STABLES")
+FL_REWARD_AGGREGATOR=$(dappCreate binance-fl-ct-optimized RewardDecayAggregator "$FL_REWARDER_GOV_USD" "$FL_REWARDER_STABLES")
 
 sethSend "$FL_REWARDER_GOV_USD" "setupAggregator(address)" "$FL_REWARD_AGGREGATOR"
 sethSend "$FL_REWARDER_STABLES" "setupAggregator(address)" "$FL_REWARD_AGGREGATOR"
@@ -130,4 +130,3 @@ sethSend "$FL_REWARDER_STABLES" "setupGemForRewardChecker(address)" "$FL_REWARD_
 sethSend "$FL_REWARDER" "setupGemForRewardChecker(address)" "$FL_REWARD_MAIN_CHECKER_CONTRACT"
 
 export FL_REWARD_AGGREGATOR
-

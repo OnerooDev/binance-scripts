@@ -19,7 +19,7 @@
 . "$LIB_DIR/common.sh"
 
 if [[ -z "$USDTDAI" ]]; then
-    USDTDAI=$(dappCreate freeliquid-ct-optimized UniswapPairUSDTUSDCStub "$(seth --to-uint256 "$(seth --to-wei 1000000 ETH)")")
+    USDTDAI=$(dappCreate binance-fl-ct-optimized UniswapPairUSDTUSDCStub "$(seth --to-uint256 "$(seth --to-wei 1000000 ETH)")")
     log "USDTDAI=$USDTDAI"
     export USDTDAI
 fi
