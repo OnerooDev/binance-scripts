@@ -21,7 +21,6 @@
   "flop_tau": "3600",
 
   "tokens": {
-    "tokens": {
 
       "BUSDUSDC": {
         "import": {
