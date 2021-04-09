@@ -157,8 +157,8 @@ for token in $tokens; do
     for ilk in $ilks; do
         "$LIBEXEC_DIR/dss/deploy-ilk-$(echo "$token" | tr '[:upper:]' '[:lower:]')" "$ilk"
         # shellcheck source=/dev/null
-        . "$OUT_DIR/load-ilk-addr-temp"
-        rm "$OUT_DIR/load-ilk-addr-temp"
+        #. "$OUT_DIR/load-ilk-addr-temp"
+        #rm "$OUT_DIR/load-ilk-addr-temp"
     done
 
 done
@@ -194,6 +194,17 @@ log "OSM_MOM=$OSM_MOM"
 FLIPPER_MOM=$(dappCreate flipper-mom FlipperMom "$MCD_CAT")
 log "FLIPPER_MOM=$FLIPPER_MOM"
 
+
+for token in $tokens; do
+    ilks=$(jq -r ".tokens.${token}.ilks | keys_unsorted[]" "$CONFIG_FILE")
+    for ilk in $ilks; do
+        sethSend "$ILK_REGISTRY" 'add(address)' "$(eval echo "\$MCD_JOIN_${token}_${ilk}")"
+    done
+done
+
+# Deploy IlkRegistry
+ILK_REGISTRY=$(dappCreate ilk-registry-optimized IlkRegistry "$MCD_VAT" "$MCD_CAT" "$MCD_SPOT")
+log "ILK_REGISTRY=$ILK_REGISTRY"
 
 for token in $tokens; do
     ilks=$(jq -r ".tokens.${token}.ilks | keys_unsorted[]" "$CONFIG_FILE")
