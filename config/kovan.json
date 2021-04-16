@@ -22,160 +22,29 @@
 
   "tokens": {
 
-    "USDCDAI": {
-      "import": {
-        "gem": "0xd4d9A707C2943f59525a9de00D2967A99f8B5f0a"
-      },
-      "pipDeploy": {
-        "osmDelay": "0",
-        "type": "freeliquid",
-        "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
-      },
-      "ilks": {
-        "A": {
-          "mat": "110",
-          "line": "150000000",
-          "dust": "100",
-          "duty": "0",
-          "chop": "13",
-          "dunk": "50000",
-          "beg": "1",
-          "ttl": "21600",
-          "tau": "21600"
+      "BUSDUSDC": {
+        "import": {
+          "gem": "0x9d54d242f87E74c3D7E6Dbca5110b78796865213"
+        },
+        "pipDeploy": {
+          "osmDelay": "0",
+          "type": "freeliquid",
+          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
+        },
+        "ilks": {
+          "A": {
+            "mat": "110",
+            "line": "150000000",
+            "dust": "100",
+            "duty": "0",
+            "chop": "13",
+            "dunk": "50000",
+            "beg": "1",
+            "ttl": "21600",
+            "tau": "21600"
+          }
         }
       }
-    },
-
-    "USDTDAI": {
-      "import": {
-        "gem": "0xF929aeD53652b76a4aD3B3F11102AEC5Dad6A918"
-      },
-      "pipDeploy": {
-        "osmDelay": "0",
-        "type": "freeliquid",
-        "customOracleContract":"UniswapAdapterPriceOracle_USDT_Buck",
-        "oracleETHUSDT": "0x0bF499444525a23E7Bb61997539725cA2e928138",
-        "oracleUSDETH": "0x9326BFA02ADD2366b30bacB125260Af641031331",
-        "tokenUSDT": "0x13512979ade267ab5100878e2e0f485b568328a4"
-      },
-      "ilks": {
-        "A": {
-          "mat": "110",
-          "line": "150000000",
-          "dust": "100",
-          "duty": "0",
-          "chop": "13",
-          "dunk": "50000",
-          "beg": "1",
-          "ttl": "21600",
-          "tau": "21600"
-        }
-      }
-    },
-
-
-    "USDTUSDC": {
-      "import": {
-        "gem": "0xeea18d0ecd0391f96b129faefdb51883fc4dbc18"
-      },
-      "pipDeploy": {
-        "osmDelay": "0",
-        "type": "freeliquid",
-        "customOracleContract":"UniswapAdapterPriceOracle_USDT_Buck",
-        "oracleETHUSDT": "0x0bF499444525a23E7Bb61997539725cA2e928138",
-        "oracleUSDETH": "0x9326BFA02ADD2366b30bacB125260Af641031331",
-        "tokenUSDT": "0x13512979ade267ab5100878e2e0f485b568328a4"
-      },
-      "ilks": {
-        "A": {
-          "mat": "110",
-          "line": "150000000",
-          "dust": "100",
-          "duty": "0",
-          "chop": "13",
-          "dunk": "50000",
-          "beg": "1",
-          "ttl": "21600",
-          "tau": "21600"
-        }
-      }
-    },
-
-    "USDNDAI": {
-      "import": {
-        "gem": "0xa778bc72bf31953555b6e094503792ba66cc8d72"
-      },
-      "pipDeploy": {
-        "osmDelay": "0",
-        "type": "freeliquid",
-        "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
-      },
-      "ilks": {
-        "A": {
-          "mat": "110",
-          "line": "50000000",
-          "dust": "100",
-          "duty": "0",
-          "chop": "13",
-          "dunk": "50000",
-          "beg": "1",
-          "ttl": "21600",
-          "tau": "21600"
-        }
-      }
-    },
-
-    "USDTUSDN": {
-      "import": {
-        "gem": "0xA005c4cb0FF752aEa9A7BCabA4215adA99C49433"
-      },
-      "pipDeploy": {
-        "osmDelay": "0",
-        "type": "freeliquid",
-        "customOracleContract":"UniswapAdapterPriceOracle_USDT_Buck",
-        "oracleETHUSDT": "0x0bF499444525a23E7Bb61997539725cA2e928138",
-        "oracleUSDETH": "0x9326BFA02ADD2366b30bacB125260Af641031331",
-        "tokenUSDT": "0x13512979ade267ab5100878e2e0f485b568328a4"
-      },
-      "ilks": {
-        "A": {
-          "mat": "110",
-          "line": "50000000",
-          "dust": "100",
-          "duty": "0",
-          "chop": "13",
-          "dunk": "50000",
-          "beg": "1",
-          "ttl": "21600",
-          "tau": "21600"
-        }
-      }
-    },
-
-
-    "USDCUSDN": {
-      "import": {
-        "gem": "0x30DaBEd27aF8Bdeec71D8b0CeEa0f6C954E1E060"
-      },
-      "pipDeploy": {
-        "osmDelay": "0",
-        "type": "freeliquid",
-        "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
-      },
-      "ilks": {
-        "A": {
-          "mat": "110",
-          "line": "50000000",
-          "dust": "100",
-          "duty": "0",
-          "chop": "13",
-          "dunk": "50000",
-          "beg": "1",
-          "ttl": "21600",
-          "tau": "21600"
-        }
-      }
-    }
 
   }
 }

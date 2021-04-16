@@ -24,7 +24,7 @@
 
       "BUSDUSDC": {
         "import": {
-          "gem": "0x680Dd100E4b394Bda26A59dD5c119A391e747d18"
+          "gem": "0xc904d30e33a4f914cdf042215faea40d5b55605c"
         },
         "pipDeploy": {
           "osmDelay": "0",
