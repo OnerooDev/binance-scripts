@@ -33,4 +33,4 @@ if [[ "${type}" == "freeliquid" ]]; then
 fi
 
 # shellcheck source=libexec/dss/deploy-ilk
-. "$LIBEXEC_DIR/dss/deploy-ilk" "BUSDUSDC" "${1:-"A"}" "GemJoinPC"
+. "$LIBEXEC_DIR/dss/deploy-ilk" "BUSDUSDC" "${1:-"A"}" "GemJoinWithReward"
