@@ -29,7 +29,7 @@
         "pipDeploy": {
           "osmDelay": "0",
           "type": "freeliquid",
-          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
+          "customOracleContract":"PancakeAdapterPriceOracle_Buck_Buck"
         },
         "ilks": {
           "A": {
@@ -53,7 +53,7 @@
         "pipDeploy": {
           "osmDelay": "0",
           "type": "freeliquid",
-          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
+          "customOracleContract":"PancakeAdapterPriceOracle_Buck_Buck"
         },
         "ilks": {
           "A": {
@@ -77,7 +77,7 @@
         "pipDeploy": {
           "osmDelay": "0",
           "type": "freeliquid",
-          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
+          "customOracleContract":"PancakeAdapterPriceOracle_Buck_Buck"
         },
         "ilks": {
           "A": {
@@ -101,7 +101,7 @@
         "pipDeploy": {
           "osmDelay": "0",
           "type": "freeliquid",
-          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
+          "customOracleContract":"PancakeAdapterPriceOracle_Buck_Buck"
         },
         "ilks": {
           "A": {
