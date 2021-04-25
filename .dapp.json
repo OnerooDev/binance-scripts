@@ -1,6 +1,6 @@
 {
     "contracts": {
-        "binance-fl-ct_0a92be1": {
+        "binance-fl-ct_959c670": {
             "deps": {
                 "ds-test": "ds-test_eb7148d",
                 "ds-note": "ds-note_c673c9d",
@@ -8,13 +8,13 @@
             },
             "name": "binance-fl-ct",
             "repo": {
-                "name": "binance-fl-ct-0a92be1",
+                "name": "binance-fl-ct-959c670",
                 "ref": "HEAD",
-                "rev": "0a92be166df7ac601142610361a9539d3081eb24",
+                "rev": "959c6705f0e7a04d83ece861c21b178b169b548c",
                 "url": "https://github.com/SeerDay/binance-fl-ct"
             }
         },
-        "binance-fl-ct-optimized_0a92be1": {
+        "binance-fl-ct-optimized_959c670": {
             "deps": {
                 "ds-test": "ds-test_eb7148d",
                 "ds-note": "ds-note_c673c9d",
@@ -22,9 +22,9 @@
             },
             "name": "binance-fl-ct-optimized",
             "repo": {
-                "name": "binance-fl-ct-0a92be1",
+                "name": "binance-fl-ct-959c670",
                 "ref": "HEAD",
-                "rev": "0a92be166df7ac601142610361a9539d3081eb24",
+                "rev": "959c6705f0e7a04d83ece861c21b178b169b548c",
                 "url": "https://github.com/SeerDay/binance-fl-ct"
             }
         },
@@ -531,8 +531,8 @@
     },
     "this": {
         "deps": {
-            "binance-fl-ct":"binance-fl-ct_0a92be1",
-            "binance-fl-ct-optimized":"binance-fl-ct-optimized_0a92be1",
+            "binance-fl-ct":"binance-fl-ct_959c670",
+            "binance-fl-ct-optimized":"binance-fl-ct-optimized_959c670",
 
             "ds-chief": "ds-chief_ea05ee0",
             "ds-proxy": "ds-proxy_abcc710",

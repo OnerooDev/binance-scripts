@@ -22,7 +22,79 @@
 
   "tokens": {
 
+      "BUSDDAI": {
+        "import": {
+          "gem": "0x9d54d242f87E74c3D7E6Dbca5110b78796865213"
+        },
+        "pipDeploy": {
+          "osmDelay": "0",
+          "type": "freeliquid",
+          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
+        },
+        "ilks": {
+          "A": {
+            "mat": "110",
+            "line": "150000000",
+            "dust": "100",
+            "duty": "0",
+            "chop": "13",
+            "dunk": "50000",
+            "beg": "1",
+            "ttl": "21600",
+            "tau": "21600"
+          }
+        }
+      },
+
       "BUSDUSDC": {
+        "import": {
+          "gem": "0x9d54d242f87E74c3D7E6Dbca5110b78796865213"
+        },
+        "pipDeploy": {
+          "osmDelay": "0",
+          "type": "freeliquid",
+          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
+        },
+        "ilks": {
+          "A": {
+            "mat": "110",
+            "line": "150000000",
+            "dust": "100",
+            "duty": "0",
+            "chop": "13",
+            "dunk": "50000",
+            "beg": "1",
+            "ttl": "21600",
+            "tau": "21600"
+          }
+        }
+      },
+
+      "BUSDUSDT": {
+        "import": {
+          "gem": "0x9d54d242f87E74c3D7E6Dbca5110b78796865213"
+        },
+        "pipDeploy": {
+          "osmDelay": "0",
+          "type": "freeliquid",
+          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
+        },
+        "ilks": {
+          "A": {
+            "mat": "110",
+            "line": "150000000",
+            "dust": "100",
+            "duty": "0",
+            "chop": "13",
+            "dunk": "50000",
+            "beg": "1",
+            "ttl": "21600",
+            "tau": "21600"
+          }
+        }
+      },
+
+      "BUSDVAI": {
         "import": {
           "gem": "0x9d54d242f87E74c3D7E6Dbca5110b78796865213"
         },
