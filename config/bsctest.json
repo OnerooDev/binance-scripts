@@ -24,7 +24,7 @@
 
     "BUSDDAI": {
       "import": {
-        "gem": "0x9d54d242f87E74c3D7E6Dbca5110b78796865213"
+        "gem": "0x4B0598Ecf9924ce4b910179D40D29835a90f2226"
       },
       "pipDeploy": {
         "osmDelay": "0",
@@ -47,7 +47,7 @@
     },
     "BUSDUSDC": {
       "import": {
-        "gem": "0x9d54d242f87E74c3D7E6Dbca5110b78796865213"
+        "gem": "0x4B0598Ecf9924ce4b910179D40D29835a90f2226"
       },
       "pipDeploy": {
         "osmDelay": "0",
@@ -70,7 +70,7 @@
     },
     "BUSDUSDT": {
       "import": {
-        "gem": "0x9d54d242f87E74c3D7E6Dbca5110b78796865213"
+        "gem": "0x4B0598Ecf9924ce4b910179D40D29835a90f2226"
       },
       "pipDeploy": {
         "osmDelay": "0",
@@ -93,7 +93,7 @@
     },
     "BUSDVAI": {
       "import": {
-        "gem": "0x9d54d242f87E74c3D7E6Dbca5110b78796865213"
+        "gem": "0x4B0598Ecf9924ce4b910179D40D29835a90f2226"
       },
       "pipDeploy": {
         "osmDelay": "0",
