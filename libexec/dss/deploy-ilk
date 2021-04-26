@@ -34,7 +34,6 @@ ilkJoin=$3 # adapter contract name
 test -z "$MCD_DEPLOY" && exit 1
 
 MCD_VAT=$(seth call "$MCD_DEPLOY" "vat()(address)")
-
 contract=$(dappCreate binance-fl-ct-optimized "$ilkJoin" "$MCD_VAT" "$(seth --to-bytes32 "$(seth --from-ascii "$ilk")")" "$(eval echo "\$${tok}")")
 
 eval export "\MCD_JOIN_${ilkVar}=${contract}"

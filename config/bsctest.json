@@ -1,5 +1,5 @@
 {
-  "description": "BSC deployment",
+  "description": "Kovan deployment",
   "pauseDelay": "0",
   "vat_line": "763000000",
   "vow_wait": "3600",
@@ -29,7 +29,7 @@
         "pipDeploy": {
           "osmDelay": "0",
           "type": "freeliquid",
-          "customOracleContract":"PancakeAdapterPriceOracle_Buck_Buck"
+          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
         },
         "ilks": {
           "A": {
@@ -53,7 +53,7 @@
         "pipDeploy": {
           "osmDelay": "0",
           "type": "freeliquid",
-          "customOracleContract":"PancakeAdapterPriceOracle_Buck_Buck"
+          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
         },
         "ilks": {
           "A": {
@@ -78,7 +78,7 @@
         "pipDeploy": {
           "osmDelay": "0",
           "type": "freeliquid",
-          "customOracleContract":"PancakeAdapterPriceOracle_Buck_Buck"
+          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
         },
         "ilks": {
           "A": {
@@ -102,7 +102,7 @@
         "pipDeploy": {
           "osmDelay": "0",
           "type": "freeliquid",
-          "customOracleContract":"PancakeAdapterPriceOracle_Buck_Buck"
+          "customOracleContract":"UniswapAdapterPriceOracle_Buck_Buck"
         },
         "ilks": {
           "A": {
