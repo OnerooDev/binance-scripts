@@ -19,7 +19,7 @@
 . "$LIB_DIR/common.sh"
 
 if [[ -z "$BUSDVAI" ]]; then
-    BUSDVAI=$(dappCreate binance-fl-ct-optimized UniswapPairUSDTUSDCStub "$(seth --to-uint256 "$(seth --to-wei 1000000 ETH)")")
+    BUSDVAI=$(dappCreate binance-fl-ct-optimized PancakePairUSDTUSDCStub "$(seth --to-uint256 "$(seth --to-wei 1000000 ETH)")")
     log "BUSDVAI=$BUSDVAI"
     export BUSDVAI
 fi
@@ -33,4 +33,4 @@ if [[ "${type}" == "freeliquid" ]]; then
 fi
 
 # shellcheck source=libexec/dss/deploy-ilk
-#. "$LIBEXEC_DIR/dss/deploy-ilk-fl" "BUSDVAI" "${1:-"A"}" "GemJoinWithReward" "NONE" "$FL_REWARDER" "$FL_UNI_ADAPTER_STABLES"
+. "$LIBEXEC_DIR/dss/deploy-ilk" "BUSDVAI" "${1:-"A"}" "GemJoinLP"

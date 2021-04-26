@@ -19,7 +19,7 @@
 . "$LIB_DIR/common.sh"
 
 if [[ -z "$BUSDUSDC" ]]; then
-    BUSDUSDC=$(dappCreate binance-fl-ct-optimized UniswapPairUSDTUSDCStub "$(seth --to-uint256 "$(seth --to-wei 1000000 ETH)")")
+    BUSDUSDC=$(dappCreate binance-fl-ct-optimized PancakePairUSDTUSDCStub "$(seth --to-uint256 "$(seth --to-wei 1000000 ETH)")")
     log "BUSDUSDC=$BUSDUSDC"
     export BUSDUSDC
 fi
@@ -33,4 +33,4 @@ if [[ "${type}" == "freeliquid" ]]; then
 fi
 
 # shellcheck source=libexec/dss/deploy-ilk
-. "$LIBEXEC_DIR/dss/deploy-ilk" "BUSDUSDC" "${1:-"A"}" "GemJoinPC"
+. "$LIBEXEC_DIR/dss/deploy-ilk" "BUSDUSDC" "${1:-"A"}" "GemJoinLP"

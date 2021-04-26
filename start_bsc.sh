@@ -5,7 +5,7 @@ export LIBEXEC_DIR='libexec'
 export CONFIG_DIR='config'
 export DAPP_LIB='contracts'
 export DAPP_SKIP_BUILD='yes'
-export ETH_FROM=0x701123a676E9A765191276C1587c01b009646EF6
+export ETH_FROM=0xf796Eef645F973189C5C625E8c5A8a95C1Cb4d8F
 export ETH_GAS_PRICE=10000000000
 export ETH_PASSWORD=password
 export ETH_KEYSTORE=keys/keystore
@@ -15,4 +15,3 @@ export ETHERSCAN_API_KEY=DUJ2SA4AXYMAIUM4AQCD74I85FP7CXFA3R
 
 # seth ls
 bin/dss-deploy bsctest
-
